@@ -27,7 +27,7 @@
     {
         let dataa = JSON.parse(this.responseText).feed.
         entry;
-        var rollText = dataa[0]["gsx$a"]["$t"];
+        var rollText = dataa[1]["gsx$a"]["$t"];
  
  document.getElementById("demo2").innerHTML +=
 
