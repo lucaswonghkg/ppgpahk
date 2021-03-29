@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  
+}
+.box{
+
+
+  padding-top:500px ;
+  color: black;
+  font-size:35px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 1920px;
+
+}
+.content p{
+  display:inline-block;
+}
+.content p.padding{
+  padding-right: 300px;
+}
+</style>
+
+
+    </head>
+
+
+    <body>
+
+        <script src="textAjs.js"></script>
+
+
+<div class="box">
+    <div class="content" id="text">
+
+ 
+
+    </div>
+</div>
+
+
+
+<script>let [box, content, text] = [
+    document.querySelector('.box'),
+    document.querySelector('.content'),
+    document.querySelector('#text')
+  ]
+  let [textWidth, boxWidth] = [
+    text.offsetWidth,
+    box.offsetWidth
+  ]
+  window.onload=function checkScrollLeft(){
+    // Determine The length of scrolling text
+    if(boxWidth > textWidth){ return false}
+    content.innerHTML += content.innerHTML
+    document.querySelector('#text').classList.add('padding')
+    // Update the script
+    textWidth = document.querySelector('#text').offsetWidth
+    toScrollLeft()
+  }
+  function toScrollLeft(){
+    //  如果文字长度大于滚动条距离，则递归拖动
+    if(textWidth > box.scrollLeft){
+      box.scrollLeft++
+      setTimeout('toScrollLeft()',0);
+    }
+    else{
+      box.scrollLeft++
+      setTimeout('toScrollLeft()',0);
+    }
+  }
+    </script>
+</body>
+
+</html>
